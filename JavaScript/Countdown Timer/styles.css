@@ -27,14 +27,16 @@ body {
     font-size: 4rem; /* Increased size for the timer */
     margin: 20px 0;
     display: flex;
-    align-items: baseline; /* Aligns the text properly */
+    /* align-items: baseline; Aligns the text properly */
     gap: 50px;
 }
 
 .time {
-    display: inline-block;
-    width: 80px;
+    font-size: 0.8em; /* Make time display bigger */
+    width: 70px; /* Set a fixed width for the inputs */
     text-align: center;
+    border: none; /* Remove border */
+    background: none; /* Remove background */
 }
 
 .colon {

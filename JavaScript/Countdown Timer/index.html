@@ -16,13 +16,13 @@
         <span>Seconds</span>
     </div>
 
-    <!-- Time Display -->
+    <!-- Editable Time Inputs -->
     <div class="timer">
-        <span class="time" id="hours">00</span>
+        <input type="number" id="hours" class="time" value="00" min="0" max="99">
         <span class="colon">:</span>
-        <span class="time" id="minutes">00</span>
+        <input type="number" id="minutes" class="time" value="00" min="0" max="59">
         <span class="colon">:</span>
-        <span class="time" id="seconds">00</span>
+        <input type="number" id="seconds" class="time" value="00" min="0" max="59">
     </div>
 
     <!-- Button Container for Start and Reset buttons -->
@@ -30,5 +30,8 @@
         <button class="btn" id="startButton">Start</button>
         <button class="btn" id="resetButton">Reset</button>
     </div>
+
+    <!-- Include script.js -->
+    <script src="script.js"></script>
 </body>
 </html>
