@@ -4,19 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown Timer</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1 class="heading">Countdown Timer</h1>
     
+    <!-- Timer Labels for Hours, Minutes, Seconds -->
+    <div class="timer-labels">
+        <span>Hours</span>
+        <span>Minutes</span>
+        <span>Seconds</span>
+    </div>
+
     <!-- Time Display -->
     <div class="timer">
-        <span class="time" id="hours">00</span> :
-        <span class="time" id="minutes">00</span> :
+        <span class="time" id="hours">00</span>
+        <span class="colon">:</span>
+        <span class="time" id="minutes">00</span>
+        <span class="colon">:</span>
         <span class="time" id="seconds">00</span>
     </div>
 
-    <!-- Buttons -->
-    <button class="btn" id="startButton">Start</button>
-    <button class="btn" id="resetButton">Reset</button>
+    <!-- Button Container for Start and Reset buttons -->
+    <div class="button-container">
+        <button class="btn" id="startButton">Start</button>
+        <button class="btn" id="resetButton">Reset</button>
+    </div>
 </body>
 </html>
