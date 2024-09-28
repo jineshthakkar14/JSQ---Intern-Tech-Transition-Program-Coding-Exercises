@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
 
-const TodoCheck = ({ task, index, updateTask }) => {
-  const [isChecked, setIsChecked] = useState(false);
+const TodoCheck = ({ task, index, updateTask, deleteTask, toggleTask, isChecked }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentTask, setCurrentTask] = useState(task);
-
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-  };
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -25,7 +20,7 @@ const TodoCheck = ({ task, index, updateTask }) => {
   };
 
   return (
-    <div className="flex items-center justify-between w-full">
+    <div className="flex items-center justify-between w-full mb-2">
       <div className="flex-grow">
         <span className={isChecked ? 'line-through' : ''}>
           {isEditing ? (
@@ -44,10 +39,7 @@ const TodoCheck = ({ task, index, updateTask }) => {
               />
             </div>
           ) : (
-            <span
-              onClick={handleEditClick}
-              style={{ cursor: 'pointer' }}
-            >
+            <span onClick={handleEditClick} style={{ cursor: 'pointer' }}>
               {task}
             </span>
           )}
@@ -56,7 +48,7 @@ const TodoCheck = ({ task, index, updateTask }) => {
       <input
         type="checkbox"
         checked={isChecked}
-        onChange={handleCheckboxChange}
+        onChange={() => toggleTask(index)}
         className="ml-2"
       />
       <FaEdit
@@ -64,6 +56,9 @@ const TodoCheck = ({ task, index, updateTask }) => {
         className="cursor-pointer text-blue-500 ml-2"
         title="Edit Task"
       />
+      <button onClick={() => deleteTask(index)} className="text-red-500 ml-2">
+        Delete
+      </button>
     </div>
   );
 };
