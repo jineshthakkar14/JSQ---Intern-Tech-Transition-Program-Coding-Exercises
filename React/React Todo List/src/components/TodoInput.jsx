@@ -5,8 +5,10 @@ const TodoInput = ({ addTask }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTask(inputValue);
-    setInputValue('');
+    if (inputValue.trim()) {
+      addTask(inputValue);
+      setInputValue('');
+    }
   };
 
   return (
