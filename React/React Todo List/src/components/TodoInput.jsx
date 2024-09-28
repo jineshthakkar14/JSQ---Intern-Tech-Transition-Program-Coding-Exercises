@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-const TodoList = () => {
+const TodoInput = ({ addTask }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputValue);
+    addTask(inputValue);
     setInputValue('');
   };
 
@@ -29,4 +29,4 @@ const TodoList = () => {
   );
 };
 
-export default TodoList;
+export default TodoInput;
