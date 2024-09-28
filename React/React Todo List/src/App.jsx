@@ -11,14 +11,19 @@ const App = () => {
 
   const updateTask = (index, newTask) => {
     const updatedTasks = tasks.map((task, i) => (i === index ? newTask : task));
-    setTasks(updatedTasks); // Update the tasks array
+    setTasks(updatedTasks);
+  };
+
+  const deleteTask = (index) => {
+    const filteredTasks = tasks.filter((_, i) => i !== index);
+    setTasks(filteredTasks);
   };
 
   return (
     <div className="container mx-auto mt-10">
       <h1 className="text-3xl font-bold mb-4">To-Do App</h1>
       <TodoInput addTask={addTask} />
-      <TodoList tasks={tasks} updateTask={updateTask} /> {/* Pass updateTask function */}
+      <TodoList tasks={tasks} updateTask={updateTask} deleteTask={deleteTask} />
     </div>
   );
 };
