@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoCheck from './TodoCheck';
 
-const TodoList = ({ tasks, setFilter, updateTask, deleteTask, toggleTask, filter }) => {
+const TodoList = ({ tasks, setFilter, updateTask, deleteTask, toggleTask, filter, deleteAllTasks, deleteDoneTasks }) => {
   return (
     <div>
       <div className="flex space-x-4 mb-4">
@@ -24,17 +24,39 @@ const TodoList = ({ tasks, setFilter, updateTask, deleteTask, toggleTask, filter
           Done
         </button>
       </div>
-      {tasks.map((task, index) => (
-        <TodoCheck
-          key={index}
-          task={task.text}
-          index={index}
-          updateTask={updateTask}
-          deleteTask={deleteTask}
-          toggleTask={toggleTask}
-          isChecked={task.isDone}
-        />
-      ))}
+
+      {tasks.length > 0 ? (
+        <>
+          {tasks.map((task, index) => (
+            <TodoCheck
+              key={index}
+              task={task.text}
+              index={index}
+              updateTask={updateTask}
+              deleteTask={deleteTask}
+              toggleTask={toggleTask}
+              isChecked={task.isDone}
+            />
+          ))}
+
+          <div className="mt-4">
+            <button 
+              onClick={deleteDoneTasks} 
+              className="px-4 py-2 bg-red-500 text-white rounded mr-2"
+            >
+              Delete Done Tasks
+            </button>
+            <button 
+              onClick={deleteAllTasks} 
+              className="px-4 py-2 bg-red-500 text-white rounded"
+            >
+              Delete All Tasks
+            </button>
+          </div>
+        </>
+      ) : (
+        <p className="text-gray-500">No tasks available. Add some tasks to get started!</p>
+      )}
     </div>
   );
 };

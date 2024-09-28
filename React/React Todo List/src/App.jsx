@@ -27,6 +27,15 @@ const App = () => {
     setTasks(updatedTasks);
   };
 
+  const deleteDoneTasks = () => {
+    const updatedTasks = tasks.filter((task) => !task.isDone);
+    setTasks(updatedTasks);
+  };
+
+  const deleteAllTasks = () => {
+    setTasks([]);
+  };
+
   const filteredTasks = tasks.filter((task) => {
     if (filter === 'Done') return task.isDone;
     if (filter === 'To Do') return !task.isDone;
@@ -43,7 +52,9 @@ const App = () => {
         updateTask={updateTask}
         deleteTask={deleteTask}
         toggleTask={toggleTask}
-        filter={filter} // Pass the filter state
+        filter={filter}
+        deleteAllTasks={deleteAllTasks}
+        deleteDoneTasks={deleteDoneTasks}
       />
     </div>
   );
