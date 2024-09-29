@@ -8,6 +8,32 @@ const PasswordGenerator = () => {
   const [includeNumbers, setIncludeNumbers] = useState(false);
   const [includeSymbols, setIncludeSymbols] = useState(false);
 
+  //Generate Password logic
+  const generatePassword = () => {
+    if (!includeLowercase && !includeUppercase && !includeNumbers && !includeSymbols) {
+      alert('Please select at least one character type!');
+      return;
+    }
+
+    const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+    const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const numberChars = '0123456789';
+    const symbolChars = '!@#$%^&*()_+[]{}|;:",.<>?/';
+
+    let characters = '';
+    if (includeLowercase) characters += lowercaseChars;
+    if (includeUppercase) characters += uppercaseChars;
+    if (includeNumbers) characters += numberChars;
+    if (includeSymbols) characters += symbolChars;
+
+    let newPassword = '';
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      newPassword += characters[randomIndex];
+    }
+    setPassword(newPassword);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
@@ -70,6 +96,15 @@ const PasswordGenerator = () => {
             Include Symbols
           </label>
         </div>
+
+        {/* Generate Password Button */}
+        <button
+          className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+          onClick={generatePassword}
+        >
+          Generate Password
+        </button>
+
 
       </div>
     </div>
