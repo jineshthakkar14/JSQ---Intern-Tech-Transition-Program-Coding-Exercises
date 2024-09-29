@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 const PasswordGenerator = () => {
-  const [password, setPassword] = useState(''); // For displaying the password
+  const [password, setPassword] = useState('');
+  const [length, setLength] = useState(1);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
@@ -11,6 +12,19 @@ const PasswordGenerator = () => {
         {/* Password Display */}
         <div className="bg-gray-200 p-3 mb-6 rounded-md text-center text-lg font-mono">
           {password || "Your password will appear here"}
+        </div>
+
+        {/*Password Length slider*/}
+        <div className="mb-4">
+          <label className="block mb-2 text-gray-700">Password Length: {length}</label>
+          <input
+            type="range"
+            className="w-full"
+            value={length}
+            min="1"
+            max="20"
+            onChange={(e) => setLength(Number(e.target.value))}
+          />
         </div>
 
       </div>
