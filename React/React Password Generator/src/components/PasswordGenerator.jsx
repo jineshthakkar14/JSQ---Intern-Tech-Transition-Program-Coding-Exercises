@@ -9,6 +9,7 @@ const PasswordGenerator = () => {
   const [includeNumbers, setIncludeNumbers] = useState(false);
   const [includeSymbols, setIncludeSymbols] = useState(false);
   const [copyMessage, setCopyMessage] = useState('');
+  const [passwordStrength, setPasswordStrength] = useState('');
 
   //Generate Password logic
   const generatePassword = () => {
@@ -34,12 +35,44 @@ const PasswordGenerator = () => {
       newPassword += characters[randomIndex];
     }
     setPassword(newPassword);
+    evaluatePasswordStrength(newPassword);
   };
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(password);
     setCopyMessage('Copied!'); // Set the copy message
     setTimeout(() => setCopyMessage(''), 2000); // Clear the message after 2 seconds
+  };
+
+  //Password strength logic
+  const evaluatePasswordStrength = (password) => {
+    let strength = 0;
+
+    if (password.length >= 8) strength++;
+    if (password.length >= 12) strength++;
+    if (password.length >= 16) strength++;
+
+    const hasLowercase = /[a-z]/.test(password);
+    const hasUppercase = /[A-Z]/.test(password);
+    const hasNumbers = /[0-9]/.test(password);
+    const hasSymbols = /[!@#$%^&*()_+[\]{}|;:",.<>?/]/.test(password);
+
+    const characterVariety = [hasLowercase, hasUppercase, hasNumbers, hasSymbols].filter(Boolean).length;
+
+    if (characterVariety === 1) strength++;
+    if (characterVariety === 2) strength += 2;
+    if (characterVariety === 3) strength += 3;
+    if (characterVariety === 4) strength += 4;
+
+    if (strength <= 2) {
+        setPasswordStrength('Weak');
+    } else if (strength <= 4) {
+        setPasswordStrength('Medium');
+    } else if (strength <= 6) {
+        setPasswordStrength('Strong');
+    } else {
+        setPasswordStrength('Very Strong');
+    }
   };
 
   return (
@@ -111,6 +144,11 @@ const PasswordGenerator = () => {
             />
             Include Symbols
           </label>
+        </div>
+
+        {/* Password Strength Display */}
+        <div className={`text-center mb-4 ${passwordStrength === 'Very Strong' ? 'text-blue-600' : passwordStrength === 'Strong' ? 'text-green-500' : passwordStrength === 'Medium' ? 'text-yellow-500' : 'text-red-500'}`}>
+          Password Strength: {passwordStrength || 'N/A'}
         </div>
 
         {/* Generate Password Button */}
