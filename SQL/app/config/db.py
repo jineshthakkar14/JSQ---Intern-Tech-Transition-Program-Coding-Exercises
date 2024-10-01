@@ -21,6 +21,14 @@ def check_connection():
     except OperationalError as e:
         print(f"Database connection failed: {e}")
 
-def init_db():
-    Base.metadata.create_all(bind=engine)
+def get_db():
+    """Dependency that provides a database session."""
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
+def init_db():
+    """Create database tables."""
+    Base.metadata.create_all(bind=engine)
