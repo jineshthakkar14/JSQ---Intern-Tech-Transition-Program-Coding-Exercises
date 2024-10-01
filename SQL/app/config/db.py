@@ -4,7 +4,7 @@ from sqlalchemy.exc import OperationalError
 from sqlalchemy.ext.declarative import declarative_base
 
 # Database URL
-DATABASE_URL = "postgresql://productdb_owner:aszAvjF1cg6M@ep-yellow-dust-a5apiurt.us-east-2.aws.neon.tech/productdb?sslmode=require"  # Update this line
+DATABASE_URL = "postgresql://productdb_owner:aszAvjF1cg6M@ep-yellow-dust-a5apiurt.us-east-2.aws.neon.tech/productdb"  # Update this line
 
 # Create engine and session
 engine = create_engine(DATABASE_URL)
@@ -20,4 +20,7 @@ def check_connection():
         print("Database connected successfully.")
     except OperationalError as e:
         print(f"Database connection failed: {e}")
+
+def init_db():
+    Base.metadata.create_all(bind=engine)
 
