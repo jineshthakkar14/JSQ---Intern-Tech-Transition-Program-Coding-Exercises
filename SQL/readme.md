@@ -62,15 +62,15 @@ python -m app.fetchProducts
 
 ### 6. Testing with Postman:
 
-# 1.GET /products, get all products
+## 1.GET /products, get all products
 
 ![image](https://github.com/user-attachments/assets/05d21853-5fe6-4c1c-85f2-a85b3455f2c3)
 
-# 2.GET /products/{id}, get product by id
+## 2.GET /products/{id}, get product by id
 
 ![image](https://github.com/user-attachments/assets/513d2349-f6ab-47b6-b3bc-92a861911d51)
 
-# 2.POST /products/{id}, add_product
+## 3.POST /products/{id}, add_product
 
 ![image](https://github.com/user-attachments/assets/ff408b7f-c3bb-42a4-990f-b5dcd7dec3d7)
 
@@ -83,30 +83,6 @@ To stop the server, press CTRL+C in your terminal.
 ```bash
 alembic downgrade -1
 ```
-
-
-### 9. Directory Structure:
-
-.
-├── alembic/
-│   ├── env.py
-│   ├── versions/
-│   └── alembic.ini
-├── app/
-│   ├── config/
-│   │   └── db.py
-│   ├── models/
-│   │   └── product.py
-│   ├── routes/
-│   │   └── product_routes.py
-│   ├── controllers/
-│   │   └── product_controller.py
-│   ├── schemas/
-│   │   └── product_schema.py
-│   └── main.py
-├── .gitignore
-├── requirements.txt
-└── README.md
 
 
 
