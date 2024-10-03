@@ -10,7 +10,20 @@ This project is a password generator built with **React** (version **18.2**) and
 - Real-time password strength evaluation
 - Copy generated password to clipboard with a notification
 
-## Usage
+## Using Docker
+
+This project can also be run using Docker. Follow the steps below:
+
+1. Make sure you have Docker and Docker Compose installed on your machine.
+
+2. Build and run the application using Docker Compose:
+    ```sh
+    docker-compose up --build -d
+    ```
+
+3. Open the project in your browser at [`http://localhost:3000`](http://localhost:3000) to view your project.
+
+## WIthout Docker
 
 To get started with this password generator project, follow these steps:
 
