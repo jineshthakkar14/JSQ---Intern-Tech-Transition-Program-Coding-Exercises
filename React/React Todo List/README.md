@@ -54,6 +54,6 @@ Here’s an overview of the Docker configuration:
 - **Dockerfile**: Defines how the Docker image is built.
 - **docker-compose.yml**: This file is used to define and run multi-container Docker applications. Ensure it's set up for your environment.
 
-## Contributing
+## Outcomes
 
-Contributions are welcome! If you have any suggestions or find any issues, please feel free to open an issue or a pull request.
+![Todo app](https://github.com/user-attachments/assets/0e7cf910-1ebc-41b4-928f-53ef7c0d220d)
