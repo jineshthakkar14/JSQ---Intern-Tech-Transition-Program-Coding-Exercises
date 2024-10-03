@@ -1,0 +1,29 @@
+# Ignore node_modules and logs
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Ignore build files and coverage reports
+build
+coverage
+
+# Ignore environment variables and sensitive files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore local editor/IDE settings and temporary files
+.vscode
+.idea
+.DS_Store
+*.swp
+
+# Ignore git
+.git
+
+# Ignore any other temp files or directories
+temp
+*.tmp
+*.log
